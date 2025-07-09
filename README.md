@@ -1,8 +1,8 @@
-# 🔐 FreshLinux - Script de sécurisation Linux automatisée
+# FreshLinux - Script de sécurisation Linux automatisée
 
 FreshLinux est un script Bash interactif permettant de sécuriser rapidement une machine Linux fraîchement installée. Il applique des bonnes pratiques de hardening (pare-feu, SSH, utilisateur, etc.) de manière simple et guidée.
 
-## ✅ Fonctionnalités
+## Fonctionnalités
 
 - Suppression de services inutiles (ex: telnet, ftp, nfs-common)
 - Création d’un utilisateur non-root avec accès sudo
@@ -12,7 +12,7 @@ FreshLinux est un script Bash interactif permettant de sécuriser rapidement une
     - Changement du port SSH
 - Interface interactive (avec confirmation à chaque étape)
 
-## ⚙️ Installation & exécution
+## Installation & exécution
 
 Clone le dépôt :
 ```bash
@@ -30,7 +30,7 @@ Lance-le avec sudo :
 sudo ./freshlinux.sh
 ```
 
-## 📁 Structure du projet
+## Structure du projet
 
 ```
 freshlinux/
