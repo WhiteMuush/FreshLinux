@@ -9,6 +9,8 @@ RESET="\033[0m"
 ORANGE='\033[0;33m'
 RESET='\033[0m'
 
+
+clear
 echo -e "${ORANGE}"
 echo "___________                     .__    .____    .__                      "
 echo "\_   _____/______   ____   _____|  |__ |    |   |__| ____  __ _____  ___"
@@ -18,7 +20,7 @@ echo " \___  /   |__|    \___  >____  >___|  /_______ \__|___|  /____//__/\_ \\"
 echo "     \/                \/     \/     \/        \/       \/            \/"
 echo -e "${RESET}"
 
-echo -e "${ORANGE}Info System${RESET}"
+echo -e "${ORANGE}Info System"
 echo "-----------------"
 echo "Hostname: $(hostname)"
 echo "Kernel: $(uname -r)"
@@ -34,15 +36,19 @@ echo ""
 echo ""
 echo ""
 
-source ./modules/cleanup.bash
-source ./modules/user_setup.bash
-source ./modules/Firewall.bash
-source ./modules/ssh_hardening.bash
+# Obtenir le répertoire du script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+[ -f "$SCRIPT_DIR/modules/cleanup.sh" ] && source "$SCRIPT_DIR/modules/cleanup.sh"
+[ -f "$SCRIPT_DIR/modules/user_setup.sh" ] && source "$SCRIPT_DIR/modules/user_setup.sh"
+[ -f "$SCRIPT_DIR/modules/Firewall.sh" ] && source "$SCRIPT_DIR/modules/Firewall.sh"
+[ -f "$SCRIPT_DIR/modules/ssh_hardening.sh" ] && source "$SCRIPT_DIR/modules/ssh_hardening.sh"
 
 cleanup
 create_user
 Firewall
 SSH
+
 
 echo -e "${GREEN}✔ Configuration terminée.${RESET}"
 echo -e "${CYAN}Merci d'avoir utilisé FreshLinux !${RESET}"
